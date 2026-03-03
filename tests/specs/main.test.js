@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import fs from "node:fs";
 import { describe, it } from "node:test";
 
-import get from "../../src/main.js";
+import get from "@nwutils/getter";
 
 describe("getter test suite", function () {
 
