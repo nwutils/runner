@@ -4,7 +4,6 @@ import { beforeAll, describe, expect, it } from 'vitest';
 
 import get from '@nwutils/getter';
 import run from '../../src/main.js';
-import util from '../../src/util.js';
 
 const PLATFORM_KV = {
   darwin: 'osx',
@@ -20,8 +19,7 @@ const ARCH_KV = {
 
 describe('runner test suite', async () => {
 
-  beforeAll(async () => {
-    await get({
+  const nwOptions = {
     srcDir: 'tests/fixtures/app',
     mode: 'build',
     version: '0.108.0',
@@ -39,7 +37,10 @@ describe('runner test suite', async () => {
     nativeAddon: false,
     zip: false,
     shaSum: false,
-  });
+  }
+
+  beforeAll(async () => {
+    await get(nwOptions);
   }, Infinity);
 
   it.skipIf(process.platform === 'win32')('runs and is killed via code', async () => {
