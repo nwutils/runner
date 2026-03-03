@@ -1,6 +1,6 @@
+import assert from 'node:assert';
 import process from 'node:process';
-
-import { beforeAll, describe, expect, it } from 'vitest';
+import { before, describe, it } from 'node:test';
 
 import get from '@nwutils/getter';
 import run from '../../src/main.js';
@@ -39,7 +39,7 @@ describe('runner test suite', async () => {
     shaSum: false,
   }
 
-  beforeAll(async () => {
+  before(async () => {
     await get(nwOptions);
   }, Infinity);
 
@@ -47,7 +47,7 @@ describe('runner test suite', async () => {
     const nwProcess = await run(nwOptions);
     if (nwProcess) {
       nwProcess.kill();
-      expect(nwProcess.killed).toEqual(true);
+      assert.strictEqual(nwProcess.killed, true);
     }
   });
 });

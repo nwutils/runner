@@ -43,7 +43,7 @@
     "test": "node --test --experimental-test-coverage --test-coverage-exclude=\"tests/**/*\" \"tests/specs/*.test.js\""
   },
   "volta": {
-    "node": "25.1.0",
+    "node": "25.2.1",
     "npm": "11.11.0"
   },
   "dependencies": {
