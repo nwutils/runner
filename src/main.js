@@ -55,7 +55,7 @@ async function run({
     // define callback on close
   });
 
-  nwProcess.on('error', (error) => {
+  nwProcess.on('error', () => {
     // define callback on error
   });
 
