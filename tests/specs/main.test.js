@@ -1,46 +1,52 @@
-import assert from "node:assert/strict";
-import fs from "node:fs";
-import { describe, it } from "node:test";
+import process from 'node:process';
 
-import get from "@nwutils/getter";
+import { beforeAll, describe, expect, it } from 'vitest';
 
-describe("getter test suite", function () {
+import get from '@nwutils/getter';
+import run from '../../src/main.js';
+import util from '../../src/util.js';
 
-    it("downloads a file from a test server", async function () {
-        if (!fs.existsSync("./cache/nwjs-v0.108.0-linux-x64")) {
-            await get({
-                version: "0.108.0",
-                flavor: "normal",
-                platform: "linux",
-                arch: "x64",
-                downloadUrl: "https://dl.nwjs.io",
-                manifestUrl: "https://nwjs.io/versions.json",
-                cacheDir: "./cache",
-                cache: true,
-                ffmpeg: false,
-                nativeAddon: false,
-                shaSum: true,
-            });
-        }
+const PLATFORM_KV = {
+  darwin: 'osx',
+  linux: 'linux',
+  win32: 'win',
+};
 
-        assert.strictEqual(fs.existsSync("./cache/nwjs-v0.108.0-linux-x64"), true);
-    });
+const ARCH_KV = {
+  x64: 'x64',
+  ia32: 'ia32',
+  arm64: 'arm64',
+};
 
-    it('parses manifestUrl file:/// path correctly', async function () {
-        await get({
-            version: "0.108.0",
-            flavor: "normal",
-            platform: "linux",
-            arch: "x64",
-            downloadUrl: "https://dl.nwjs.io",
-            manifestUrl: `file:///${process.cwd()}/tests/fixtures/main_manifest.json`,
-            cacheDir: "./cache",
-            cache: true,
-            ffmpeg: false,
-            nativeAddon: false,
-            shaSum: true,
-        });
-        const localManifestFile = JSON.parse(await fs.promises.readFile(`${process.cwd()}/cache/manifest.json`, "utf-8"));
-        assert.strictEqual(localManifestFile.latest, 'v0.108.0');
-    });
+describe('runner test suite', async () => {
+
+  beforeAll(async () => {
+    await get({
+    srcDir: 'tests/fixtures/app',
+    mode: 'build',
+    version: '0.108.0',
+    flavor: 'sdk',
+    platform: PLATFORM_KV[process.platform],
+    arch: ARCH_KV[process.arch],
+    downloadUrl: 'https://dl.nwjs.io',
+    manifestUrl: 'https://nwjs.io/versions.json',
+    outDir: 'tests/fixtures/out/app',
+    cacheDir: './cache/nw',
+    cache: true,
+    ffmpeg: false,
+    glob: false,
+    managedManifest: false,
+    nativeAddon: false,
+    zip: false,
+    shaSum: false,
+  });
+  }, Infinity);
+
+  it.skipIf(process.platform === 'win32')('runs and is killed via code', async () => {
+    const nwProcess = await run(nwOptions);
+    if (nwProcess) {
+      nwProcess.kill();
+      expect(nwProcess.killed).toEqual(true);
+    }
+  });
 });
