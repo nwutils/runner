@@ -14,7 +14,7 @@ Run NW.js on Linux, MacOS and Windows hosts.
 ```js
 import run from "@nwutils/runner";
 
-await get({
+const nwProcess = await run({
     version: "latest",
     flavor: "normal",
     platform: "linux",
@@ -23,6 +23,8 @@ await get({
     cacheDir: "./cache",
     argv: [],
 });
+
+nwProcess.kill();
 ```
 
 ## API Reference
