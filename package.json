@@ -47,17 +47,17 @@
     "npm": "11.11.0"
   },
   "dependencies": {
-    "semver": "^7.7.3",
+    "semver": "^7.7.4",
     "tar": "^7.5.3",
     "yauzl-promise": "^4.0.0"
   },
   "devDependencies": {
-    "@eslint/js": "^9.39.2",
+    "@eslint/js": "^10.0.1",
     "@nwutils/getter": "^0.2.2",
     "@types/node": "^25.3.3",
-    "eslint": "^9.39.2",
-    "eslint-plugin-jsdoc": "^62.1.0",
-    "globals": "^17.0.0",
+    "eslint": "^10.0.2",
+    "eslint-plugin-jsdoc": "^62.7.1",
+    "globals": "^17.4.0",
     "typescript": "^5.9.3"
   }
 }
