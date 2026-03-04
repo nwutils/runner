@@ -1,5 +1,20 @@
 # Changelog
 
+## [0.2.0](https://github.com/nwutils/runner/compare/v0.1.0...v0.2.0) (2026-03-04)
+
+
+### Features
+
+* publish to npm ([f80a64d](https://github.com/nwutils/runner/commit/f80a64db3daf26f9265945b75d34f0d59149f992))
+
+
+### Chores
+
+* add README ([e4e252b](https://github.com/nwutils/runner/commit/e4e252b2b12c084fff80fda7c76e79b1894a0d05))
+* **deps:** bump the gha group in /.github/workflows with 2 updates ([#3](https://github.com/nwutils/runner/issues/3)) ([9c51be9](https://github.com/nwutils/runner/commit/9c51be936a360b5091e0e9cc0e3ef1f7290a512d))
+* **deps:** bump the npm group with 5 updates ([#4](https://github.com/nwutils/runner/issues/4)) ([31e0c4d](https://github.com/nwutils/runner/commit/31e0c4d85cc8838c46f5ec45a19d7844b248eed6))
+* initial cut ([#1](https://github.com/nwutils/runner/issues/1)) ([ec40d49](https://github.com/nwutils/runner/commit/ec40d49c5daa066499913dfe4cf33c6becf7c7dc))
+
 ## [0.2.0](https://github.com/nwutils/getter/compare/v0.1.6...v0.2.0) (2026-01-18)
 
 
