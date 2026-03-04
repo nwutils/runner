@@ -20,8 +20,8 @@
   ],
   "contributors": [
     {
-      "name": "@nwutils/getter Contributors",
-      "url": "https://github.com/nwutils/getter/graphs/contributors"
+      "name": "@nwutils/runner Contributors",
+      "url": "https://github.com/nwutils/runner/graphs/contributors"
     }
   ],
   "license": "MIT",
@@ -32,10 +32,10 @@
     "LICENSE",
     "src"
   ],
-  "homepage": "https://github.com/nwutils/getter",
+  "homepage": "https://github.com/nwutils/runner",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nwutils/getter.git"
+    "url": "git+https://github.com/nwutils/runner.git"
   },
   "scripts": {
     "lint": "eslint .",

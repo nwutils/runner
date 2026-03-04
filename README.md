@@ -2,7 +2,7 @@
 
 [![npm](https://img.shields.io/npm/v/@nwutils/runner/latest)](https://www.npmjs.com/package/@nwutils/runner/v/latest)
 
-Download NW.js and related binaries for Linux, MacOS and Windows.
+Run NW.js on Linux, MacOS and Windows hosts.
 
 ## Getting Started
 
@@ -19,7 +19,9 @@ await get({
     flavor: "normal",
     platform: "linux",
     arch: "x64",
+    srcDir: "./src",
     cacheDir: "./cache",
+    argv: [],
 });
 ```
 
