@@ -1,4 +1,4 @@
-export default get;
+export default run;
 export type Options = {
     /**
      * Runtime version
@@ -13,32 +13,43 @@ export type Options = {
      */
     platform: "linux" | "osx" | "win";
     /**
-     * Target architecture
+     * Target arch
      */
     arch: "ia32" | "x64" | "arm64";
+    /**
+     * Source directory
+     */
+    srcDir: string;
     /**
      * Cache directory
      */
     cacheDir: string;
     /**
-     * List of CLI arguments to be passed to NW.js.
+     * If true, throw error
+     */
+    glob: boolean;
+    /**
+     * CLI arguments
      */
     argv: string[];
 };
 /**
  * @typedef {object} Options
- * @property {string | "latest" | "stable" | "lts"} version                    Runtime version
- * @property {"normal" | "sdk"}                     flavor                     Build flavor
- * @property {"linux" | "osx" | "win"}              platform                   Target platform
- * @property {"ia32" | "x64" | "arm64"}             arch                       Target architecture
- * @property {string}                               cacheDir                   Cache directory
- * @property {string[]}                              argv                      List of CLI arguments to be passed to NW.js.
+ * @property {string | "latest" | "stable" | "lts"} version     Runtime version
+ * @property {"normal" | "sdk"}                     flavor      Build flavor
+ * @property {"linux" | "osx" | "win"}              platform    Target platform
+ * @property {"ia32" | "x64" | "arm64"}             arch        Target arch
+ * @property {string}                               srcDir      Source directory
+ * @property {string}                               cacheDir    Cache directory
+ * @property {boolean}                              glob        If true, throw error
+ * @property {string[]}                             argv        CLI arguments
  */
 /**
- * Get NW.js and related binaries for Linux, MacOS and Windows.
+ * Run NW.js application.
  * @async
  * @function
- * @param  {Options}    options  Get mode options
- * @returns {Promise<void>}
+ * @param  {Options}    options  Options
+ * @returns {Promise<child_process.ChildProcess | null>} - A Node.js process object
  */
-declare function get(options: Options): Promise<void>;
+declare function run({ version, flavor, platform, arch, srcDir, cacheDir, argv, }: Options): Promise<child_process.ChildProcess | null>;
+import child_process from 'node:child_process';
