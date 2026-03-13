@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.1](https://github.com/nwutils/runner/compare/v0.2.0...v0.2.1) (2026-03-04)
+
+
+### Chores
+
+* **deps:** remove unused packages ([fcd0ed6](https://github.com/nwutils/runner/commit/fcd0ed610d445549e7b32e12b7b320377aac6e15))
+
 ## [0.2.0](https://github.com/nwutils/runner/compare/v0.1.0...v0.2.0) (2026-03-04)
 
 
